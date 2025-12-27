@@ -25,6 +25,7 @@ export default function SignupForm() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
   const [errors, setErrors] = useState({});
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleGoogleSuccess = async (codeResponse) => {
     setLoading(true);
@@ -204,7 +205,19 @@ export default function SignupForm() {
           </aside>
 
           <aside className={styles.right}>
-            <Image src={signupImage} alt="Signup vector" />
+            <div className={styles.illustrationWrap}>
+              {!imageLoaded && <div className={styles.imgSpinner} aria-hidden="true" />}
+              <Image
+                src={signupImage}
+                alt="Signup vector"
+                className={`${styles.illustration} ${imageLoaded ? `${styles.bounce} ${styles.float}` : ''}`}
+                width={520}
+                height={420}
+                loading="lazy"
+                fetchPriority="low"
+                onLoadingComplete={() => setImageLoaded(true)}
+              />
+            </div>
           </aside>
 
           <div className={styles.chateIcon}>

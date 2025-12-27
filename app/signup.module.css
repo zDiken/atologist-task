@@ -1,0 +1,291 @@
+:root {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --muted: #7c7c7c;
+  --error: #dc2626;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: #0f172a;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.form {
+  width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10.5px;
+}
+
+.title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.card {
+  width: 100%;
+  max-width: 1200px;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.04);
+  border: 1px solid #eef2f4;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  justify-content: space-between;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+}
+
+.signinLink {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.signinLink a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2baab1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.left {
+  padding: 36px 24px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+.welcome p {
+  margin: 24px 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 21.6px;
+}
+
+.googleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #e6e9ef;
+  background: white;
+  cursor: pointer;
+}
+
+.googleBtn svg {
+  display: block;
+}
+
+.orDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.orDivider span {
+  margin: 0 auto;
+  padding: 0 0.6rem;
+  background: var(--card);
+  color: #000;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.2px;
+}
+
+.orDivider:before {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: #e6e9ef;
+  margin-right: 0.6rem;
+}
+
+.orDivider:after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: #e6e9ef;
+  margin-left: 0.6rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  letter-spacing: 0.32px;
+}
+
+.field input {
+  margin: 8px 0;
+  padding: 12px 14px;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #000000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field input:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.08);
+  border-color: var(--accent);
+}
+
+.createBtn {
+  background: #2baab1;
+  font-size: 16px;
+  color: white;
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  border-radius: 6px;
+}
+
+.createBtn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--error);
+  font-size: 0.85rem;
+}
+
+.agree h3 {
+  font-size: 16px;
+}
+
+.checks {
+  display: flex;
+  gap: 16px;
+  margin-top: 0.4rem;
+  color: #494949;
+  flex-wrap: wrap;
+}
+
+.msgError {
+  margin-top: 0.5rem;
+  color: var(--error);
+}
+
+.msgSuccess {
+  margin-top: 0.5rem;
+  color: #065f46;
+}
+
+.chateIcon {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+@media (max-width: 426px) {
+  .row {
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    padding: 12px;
+  }
+  .left {
+    padding: 16px 12px;
+  }
+  .welcome h2 {
+    font-size: 20px;
+  }
+  .orDivider {
+    margin: 16px 0;
+  }
+  .row {
+    gap: 12px;
+  }
+  .checks {
+    flex-direction: column;
+  }
+}
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Tablet */
+  .card {
+    max-width: 920px;
+    padding: 14px;
+  }
+  .content {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .left {
+    padding: 20px;
+  }
+  .row {
+    gap: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  /* Laptop */
+  .card {
+    padding: 20px 28px;
+  }
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+  .left {
+    padding: 36px;
+  }
+  .orDivider {
+    margin: 20px 0;
+  }
+}
+@media (min-width: 1360px) {
+  .card {
+    max-width: 1280px;
+  }
+}/*# sourceMappingURL=signup.module.css.map */

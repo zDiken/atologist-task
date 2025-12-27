@@ -1,0 +1,166 @@
+:root {
+  --accent: #2baab1;
+  --muted: #6b7280;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, #ffffff, #f7fbfb);
+}
+
+.card {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 18px 60px rgba(5, 20, 40, 0.08);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.logoutBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.content {
+  position: relative;
+}
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sparkles span {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.9;
+  transform: translateY(-20px);
+  animation: float 2200ms linear infinite;
+}
+
+.sparkles span:nth-child(1) {
+  left: 10%;
+  top: 30%;
+  animation-delay: 0ms;
+}
+
+.sparkles span:nth-child(2) {
+  left: 30%;
+  top: 10%;
+  background: #ffd166;
+  animation-delay: 200ms;
+}
+
+.sparkles span:nth-child(3) {
+  left: 50%;
+  top: 20%;
+  background: #ff6b6b;
+  animation-delay: 400ms;
+}
+
+.sparkles span:nth-child(4) {
+  left: 70%;
+  top: 40%;
+  background: #7dd3fc;
+  animation-delay: 600ms;
+}
+
+.sparkles span:nth-child(5) {
+  left: 85%;
+  top: 18%;
+  background: #c084fc;
+  animation-delay: 800ms;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-80px) scale(1.05);
+  }
+  100% {
+    transform: translateY(-160px) scale(0.95);
+    opacity: 0;
+  }
+}
+.title {
+  font-size: 32px;
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cta {
+  background: var(--accent);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.secondary {
+  color: var(--accent);
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(43, 170, 177, 0.12);
+}
+
+/* subtle entrance */
+.card {
+  animation: popIn 420ms cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+
+@keyframes popIn {
+  from {
+    transform: translateY(12px) scale(0.995);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@media (max-width: 640px) {
+  .card {
+    padding: 2rem;
+  }
+}/*# sourceMappingURL=welcome.module.css.map */

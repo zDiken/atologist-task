@@ -10,6 +10,8 @@ import { setAuthState } from '@/app/lib/auth';
 import atologistLogo from '@/public/images/atologist-logo.svg';
 import signupImage from '@/public/images/Signup-Image.png'
 import ChateIcon from '@/public/images/Chate.svg'
+import GoogleLogo from '@/public/images/Google-logo.png'
+import Link from 'next/link';
 
 async function hashPassword(password) {
   const enc = new TextEncoder();
@@ -27,12 +29,10 @@ export default function SignupForm() {
   const handleGoogleSuccess = async (codeResponse) => {
     setLoading(true);
     try {
-      // Exchange code for token (backend would do this)
       const { data: userData } = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
         headers: { Authorization: `Bearer ${codeResponse.access_token}` },
       });
 
-      // Save auth state with Google data
       setAuthState({
         firstname: userData.given_name || userData.name || '',
         lastname: userData.family_name || '',
@@ -43,7 +43,7 @@ export default function SignupForm() {
 
       setMessage({ type: 'success', text: 'Signup with Google successful!' });
       setTimeout(() => {
-        try { router.push('/welcome') } catch (e) { /* ignore */ }
+        try { router.push('/welcome') } catch (e) { console.error(e); }
       }, 600);
     } catch (err) {
       setMessage({ type: 'error', text: err.message || 'Google signup failed' });
@@ -104,9 +104,8 @@ export default function SignupForm() {
       });
       setForm({ firstname: '', lastname: '', email: '', password: '', mobile: '', dob: '', agreeTos: false, agreePrivacy: false });
       setErrors({});
-      // short delay to show success message then redirect
       setTimeout(() => {
-        try { router.push('/welcome') } catch (e) { /* ignore */ }
+        try { router.push('/welcome') } catch (e) { console.error(e); }
       }, 900);
     } catch (err) {
       setMessage({ type: 'error', text: err.message || 'An error occurred' });
@@ -125,7 +124,7 @@ export default function SignupForm() {
                 <Image src={atologistLogo} alt="Atologist" width={140} height={36} />
               </div>
               <div className={styles.signinLink}>
-                Already have an account? <a href="#">Sign In</a>
+                Already have an account? <Link href="/">Sign In</Link>
               </div>
             </header>
             <div className={styles.left}>
@@ -135,7 +134,7 @@ export default function SignupForm() {
               </div>
 
               <button type="button" className={styles.googleBtn} onClick={() => googleLogin()} disabled={loading} aria-label="Sign up with Google">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.6 12.2275c0-.746-.0675-1.4835-.1975-2.199H12v4.166h5.48c-.236 1.266-.95 2.343-2.028 3.06v2.548h3.28c1.92-1.7675 3.04-4.378 3.04-7.5755z" fill="#4285F4" /><path d="M12 22c2.7 0 4.966-.9 6.62-2.44l-3.28-2.548c-.91.6125-2.07.976-3.34.976-2.56 0-4.732-1.72-5.505-4.03H3.02v2.53C4.66 19.79 8.06 22 12 22z" fill="#34A853" /><path d="M6.495 13.958c-.205-.62-.322-1.28-.322-1.958 0-.678.117-1.338.322-1.958V7.492H3.02C2.27 8.94 1.8 10.43 1.8 12c0 1.57.47 3.06 1.22 4.508l3.475-2.55z" fill="#FBBC05" /><path d="M12 4.48c1.47 0 2.78.505 3.82 1.496l2.87-2.87C16.96 1.54 14.7 1 12 1 8.06 1 4.66 3.21 3.02 6.48l3.475 2.53C7.268 6.2 9.44 4.48 12 4.48z" fill="#EA4335" /></svg>
+                <Image src={GoogleLogo} alt="GoogleLogo" height={20} width={20} />
                 <span>{loading ? 'Signing up...' : 'Sign up with Google'}</span>
               </button>
 

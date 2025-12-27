@@ -29,8 +29,8 @@ export default function WelcomeContent() {
                     <h1 className={styles.title}>Welcome {user?.firstname}!</h1>
                     <p className={styles.subtitle}>Your account was created successfully. Enjoy exploring!</p>
                     <div className={styles.actions}>
-                        <Link href="/" className={styles.cta}>Go to Home</Link>
-                        <Link href="#" className={styles.secondary}>Visit Dashboard</Link>
+                        <Link href="/welcome" className={styles.cta}>Go to Home</Link>
+                        <Link href="/welcome" className={styles.secondary}>Visit Dashboard</Link>
                     </div>
                 </div>
             </div>

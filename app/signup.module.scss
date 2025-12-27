@@ -226,6 +226,10 @@ body {
     gap: 12px;
     grid-template-columns: 1fr;
   }
+  .header {
+    display: block;
+    margin-bottom: 0.75rem 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -271,6 +275,10 @@ body {
 
   .row {
     gap: 14px;
+  }
+
+  .right {
+    height: 100%;
   }
 }
 
